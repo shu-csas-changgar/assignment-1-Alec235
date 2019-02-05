@@ -69,9 +69,8 @@ select
 staff.first_name,
 staff.last_name
 from staff
-join payment on staff.staff_id = payment.staff_id
-join customer on payment.customer_id = customer.customer_id
-join rental on payment.rental_id = rental.rental_id
+join rental on staff.staff_id = rental.staff_id
+join customer on rental.customer_id = customer.customer_id
 join inventory on rental.inventory_id = inventory.inventory_id
 join film on inventory.film_id = film.film_id
 where customer.first_name = 'Marie' and customer.last_name = 'Turner'
